@@ -1,6 +1,6 @@
 import { gotScraping } from 'got-scraping';
-const spuId = '1079';
-const url = `https://prod-global-api.popmart.com/shop/v1/shop/productDetails?spuId=${spuId}&s=a2a1d39bfbaeb0e247e7c2cd2c6787f3&t=1719257678`;
+const spuId = '1372';
+const url = `https://prod-global-api.popmart.com/shop/v1/shop/productDetails?spuId=${spuId}&s=92b45907685a192544676935a5ce1b65&t=1728316910`;
 const discordWebhookUrl = 'https://discord.com/api/webhooks/1254905672429080698/dt0KixVUoCC3WvkMSNMrwBFc6vv8DX-kR8T9e4TBO3QE5RAXgT0suG92ovzSvXHdcnba';
 
 const headers = {
@@ -39,8 +39,8 @@ async function checkStock() {
     });
 
     const data = response.body.data;
-    const wholeSet = data.skus.find((sku) => sku.title === 'Whole set');
-    const singleBox = data.skus.find((sku) => sku.title === 'Single box');
+    const wholeSet = data.sku.find((sku) => sku.title === 'Whole set');
+    const singleBox = data.sku.find((sku) => sku.title === 'Single box');
 
     let inStock = false;
     let message = '';
@@ -93,7 +93,7 @@ async function sendDiscordMessage(message, imageUrl) {
             fields: [
               {
                 name: 'Product URL',
-                value: `https://www.popmart.com/us/products/${spuId}/crybaby-×-powerpuff-girls-series-vinyl-face-plush-blind-box`,
+                value: `https://www.popmart.com/us/products/${spuId}/THE-MONSTERS---Have-a-Seat-Vinyl-Plush-Blind-Box`,
               },
             ],
             image: {
